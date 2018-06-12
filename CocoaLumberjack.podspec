@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
   s.requires_arc   = true
-  s.ios.platform   = :ios, '5.0'
-  s.osx.platform   = :osx, '10.7'
+  s.osx.deployment_target   = '5.0'
+  s.osx.deployment_target   = '10.7'
 
   s.preserve_paths = 'Lumberjack/**/README*'
 
