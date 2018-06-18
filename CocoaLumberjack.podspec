@@ -13,6 +13,18 @@ Pod::Spec.new do |s|
                   'such as multi-threading, grand central dispatch (if available), lockless '      \
                   'atomic operations, and the dynamic nature of the objective-c runtime.'
 
-  s.source_files = 'Lumberjack'
-  s.clean_paths = 'Benchmarking', 'Xcode'
+  
+  s.osx.deployment_target   = '10.6'
+  s.preserve_paths = 'Lumberjack/**/README*'
+
+  s.public_header_files = 'Lumberjack/**/*.h'
+  
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'Lumberjack/*.{h,m}'
+  end
+
+  s.subspec 'Extensions' do |ss|
+    ss.dependency 'CocoaLumberjack/Core'
+    ss.source_files = 'Lumberjack/Extensions/*.{h,m}'
+  end
 end
